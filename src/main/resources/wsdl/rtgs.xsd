@@ -1,0 +1,32 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.concretepage.com/article-ws"
+           targetNamespace="http://www.concretepage.com/article-ws" elementFormDefault="qualified">
+
+    <xs:element name="logon">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="username" type="xs:string"/>
+                <xs:element name="password" type="xs:string"/>
+                <xs:element name="clientWSUrl" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="logonResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="session_id" type="xs:string"/>
+                <xs:element name="data" type="tns:data"/>
+
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="data">
+        <xs:sequence>
+            <xs:element name="type" type="xs:string"/>
+            <xs:element name="mir" type="xs:string"/>
+            <xs:element name="ref" type="xs:string"/>
+
+        </xs:sequence>
+    </xs:complexType>
+
+
+    </xs:schema>

@@ -1,0 +1,40 @@
+package com.infodev.eft_rtgs.security;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import com.infodev.eft_rtgs.globalResponse.APIResponse;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.web.access.AccessDeniedHandler;
+import org.springframework.stereotype.Component;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.OutputStream;
+
+/**
+ * Handles Forbidden/ Access Denied API Response
+ * HttpStatus Code: 403
+ */
+@Component
+public class RestAccessDeniedHandler implements AccessDeniedHandler {
+
+
+    @Override
+    public void handle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AccessDeniedException e) throws IOException, ServletException {
+        httpServletResponse.addHeader("Content-Type", "application/json");
+        httpServletResponse.setStatus(HttpServletResponse.SC_FORBIDDEN);
+
+        APIResponse response = new APIResponse();
+        response.setStatus(false);
+        response.setMessage("api.request.access_denied");
+        OutputStream out = httpServletResponse.getOutputStream();
+        ObjectMapper mapper = new ObjectMapper();
+
+        mapper.writeValue(out, response);
+        out.flush();
+    }
+}
+
+

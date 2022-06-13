@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AppHdr="urn:iso:std:iso:20022:tech:xsd:head.001.001.01" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:iso:std:iso:20022:tech:xsd:head.001.001.01" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="AppHdr">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Fr">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="FIId">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="FinInstnId">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="BICFI" type="xs:string" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="To">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="FIId">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="FinInstnId">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="BICFI" type="xs:string" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="BizMsgIdr" type="xs:string" />
+                <xs:element name="MsgDefIdr" type="xs:string" />
+                <xs:element name="BizSvc" type="xs:string" />
+                <xs:element name="CreDt" type="xs:dateTime" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
